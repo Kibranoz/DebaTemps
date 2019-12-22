@@ -18,3 +18,4 @@ func prochainTour(time: inout Int)->Void{
     let tempsAvantLaFin = time % 420
     time -= tempsAvantLaFin
 }
+

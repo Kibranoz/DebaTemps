@@ -16,6 +16,7 @@ struct ContentView: View {
     @State var enCours = "CanadienParlementaire - Commencer"
     @State var pausePlay = "⏸"
     @State var tempsMillieu = 420;
+    @State var round = 7;
     //il va falloir un bouton pause
     var body: some View {
         VStack {
@@ -30,9 +31,9 @@ struct ContentView: View {
                 
             Button(action: {
                 self.enCours = "Recommencer"
-                var round = 7
+                //var round = 7
                 let chronoMillieu = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chronoMilieu) in
-                    if round > 2 {
+                    if self.round > 2 {
                     if self.tempsMillieu != 0{
                         self.tempsString = String(formatTime(time: self.tempsMillieu))
                         if self.pausePlay == "⏸"{
@@ -50,7 +51,7 @@ struct ContentView: View {
                     }
                     else{
                         //chronoMilieu.invalidate()
-                        round -= 1
+                        self.round -= 1
                         self.tempsMillieu = 420
                         
                         //self.partie = "Fin"
@@ -68,6 +69,17 @@ struct ContentView: View {
             }
             Text(tempsString)
             HStack{
+                Button(action: {
+                    if self.tempsMillieu == 0{
+                        self.round += 1
+                    }
+                    else {
+                        self.tempsMillieu = 0
+                        // ne marche pas complètement car on enlève quand même une round lorsqu'on le fait à cause de l'autre chronomètre...
+                    }
+                }, label: {
+                    Text("⏪")
+                })
                 Button(action: {
                     switch (self.pausePlay) {
                     case "▶️" :
@@ -91,6 +103,7 @@ struct ContentView: View {
                 }, label: {
                     Text("⏩")
                 } )
+                
             }
         }
 
