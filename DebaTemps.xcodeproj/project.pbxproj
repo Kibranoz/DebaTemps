@@ -1,0 +1,916 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FCC9FD023AF010900FE430D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC9FCF23AF010900FE430D /* Assets.xcassets */; };
+		4FCC9FD223AF016900FE430D /* logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC9FD123AF016900FE430D /* logic.swift */; };
+		4FCC9FD423AF01E300FE430D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC9FD323AF01E200FE430D /* ContentView.swift */; };
+		4FCC9FD623AF01F100FE430D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC9FD523AF01F100FE430D /* SceneDelegate.swift */; };
+		4FDA41BC2390E027004CBF4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41BB2390E027004CBF4C /* AppDelegate.swift */; };
+		4FDA41C22390E028004CBF4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA41C12390E028004CBF4C /* Assets.xcassets */; };
+		4FDA41C52390E028004CBF4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA41C42390E028004CBF4C /* Preview Assets.xcassets */; };
+		4FDA41C82390E028004CBF4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA41C62390E028004CBF4C /* LaunchScreen.storyboard */; };
+		4FDA41D32390E029004CBF4C /* DebaTempsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41D22390E029004CBF4C /* DebaTempsTests.swift */; };
+		4FDA41DE2390E029004CBF4C /* DebaTempsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41DD2390E029004CBF4C /* DebaTempsUITests.swift */; };
+		4FDA41E32390E029004CBF4C /* DebaTemps WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4FDA41E22390E029004CBF4C /* DebaTemps WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4FDA41E92390E029004CBF4C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA41E72390E029004CBF4C /* Interface.storyboard */; };
+		4FDA41EB2390E029004CBF4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA41EA2390E029004CBF4C /* Assets.xcassets */; };
+		4FDA41F22390E029004CBF4C /* DebaTemps WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4FDA41F12390E029004CBF4C /* DebaTemps WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4FDA41F72390E029004CBF4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41F62390E029004CBF4C /* ContentView.swift */; };
+		4FDA41F92390E029004CBF4C /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41F82390E029004CBF4C /* HostingController.swift */; };
+		4FDA41FB2390E029004CBF4C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41FA2390E029004CBF4C /* ExtensionDelegate.swift */; };
+		4FDA41FD2390E029004CBF4C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41FC2390E029004CBF4C /* NotificationController.swift */; };
+		4FDA41FF2390E029004CBF4C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41FE2390E029004CBF4C /* NotificationView.swift */; };
+		4FDA42012390E029004CBF4C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA42002390E029004CBF4C /* ComplicationController.swift */; };
+		4FDA42032390E02A004CBF4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA42022390E02A004CBF4C /* Assets.xcassets */; };
+		4FDA42062390E02A004CBF4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA42052390E02A004CBF4C /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FDA41CF2390E029004CBF4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FDA41B02390E027004CBF4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FDA41B72390E027004CBF4C;
+			remoteInfo = DebaTemps;
+		};
+		4FDA41DA2390E029004CBF4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FDA41B02390E027004CBF4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FDA41B72390E027004CBF4C;
+			remoteInfo = DebaTemps;
+		};
+		4FDA41E42390E029004CBF4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FDA41B02390E027004CBF4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FDA41E12390E029004CBF4C;
+			remoteInfo = "DebaTemps WatchKit App";
+		};
+		4FDA41F32390E029004CBF4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FDA41B02390E027004CBF4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FDA41F02390E029004CBF4C;
+			remoteInfo = "DebaTemps WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4FDA420E2390E02A004CBF4C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4FDA41F22390E029004CBF4C /* DebaTemps WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA42122390E02A004CBF4C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				4FDA41E32390E029004CBF4C /* DebaTemps WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4FCC9FCF23AF010900FE430D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DebaTemps/Assets.xcassets; sourceTree = "<group>"; };
+		4FCC9FD123AF016900FE430D /* logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logic.swift; sourceTree = "<group>"; };
+		4FCC9FD323AF01E200FE430D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4FCC9FD523AF01F100FE430D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4FDA41B82390E027004CBF4C /* DebaTemps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebaTemps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDA41BB2390E027004CBF4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4FDA41C12390E028004CBF4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FDA41C42390E028004CBF4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4FDA41C72390E028004CBF4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4FDA41C92390E028004CBF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDA41CE2390E029004CBF4C /* DebaTempsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DebaTempsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDA41D22390E029004CBF4C /* DebaTempsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebaTempsTests.swift; sourceTree = "<group>"; };
+		4FDA41D42390E029004CBF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDA41D92390E029004CBF4C /* DebaTempsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DebaTempsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDA41DD2390E029004CBF4C /* DebaTempsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebaTempsUITests.swift; sourceTree = "<group>"; };
+		4FDA41DF2390E029004CBF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDA41E22390E029004CBF4C /* DebaTemps WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DebaTemps WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDA41E82390E029004CBF4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		4FDA41EA2390E029004CBF4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FDA41EC2390E029004CBF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDA41F12390E029004CBF4C /* DebaTemps WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DebaTemps WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDA41F62390E029004CBF4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4FDA41F82390E029004CBF4C /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		4FDA41FA2390E029004CBF4C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		4FDA41FC2390E029004CBF4C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		4FDA41FE2390E029004CBF4C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		4FDA42002390E029004CBF4C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		4FDA42022390E02A004CBF4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FDA42052390E02A004CBF4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4FDA42072390E02A004CBF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDA42082390E02A004CBF4C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FDA41B52390E027004CBF4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41CB2390E029004CBF4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41D62390E029004CBF4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41EE2390E029004CBF4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4FDA41AF2390E027004CBF4C = {
+			isa = PBXGroup;
+			children = (
+				4FDA41BA2390E027004CBF4C /* DebaTemps */,
+				4FDA41D12390E029004CBF4C /* DebaTempsTests */,
+				4FDA41DC2390E029004CBF4C /* DebaTempsUITests */,
+				4FDA41E62390E029004CBF4C /* DebaTemps WatchKit App */,
+				4FDA41F52390E029004CBF4C /* DebaTemps WatchKit Extension */,
+				4FDA41B92390E027004CBF4C /* Products */,
+				4FCC9FCF23AF010900FE430D /* Assets.xcassets */,
+			);
+			sourceTree = "<group>";
+		};
+		4FDA41B92390E027004CBF4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FDA41B82390E027004CBF4C /* DebaTemps.app */,
+				4FDA41CE2390E029004CBF4C /* DebaTempsTests.xctest */,
+				4FDA41D92390E029004CBF4C /* DebaTempsUITests.xctest */,
+				4FDA41E22390E029004CBF4C /* DebaTemps WatchKit App.app */,
+				4FDA41F12390E029004CBF4C /* DebaTemps WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4FDA41BA2390E027004CBF4C /* DebaTemps */ = {
+			isa = PBXGroup;
+			children = (
+				4FCC9FD123AF016900FE430D /* logic.swift */,
+				4FCC9FD523AF01F100FE430D /* SceneDelegate.swift */,
+				4FCC9FD323AF01E200FE430D /* ContentView.swift */,
+				4FDA41BB2390E027004CBF4C /* AppDelegate.swift */,
+				4FDA41C62390E028004CBF4C /* LaunchScreen.storyboard */,
+				4FDA41C12390E028004CBF4C /* Assets.xcassets */,
+				4FDA41C92390E028004CBF4C /* Info.plist */,
+				4FDA41C32390E028004CBF4C /* Preview Content */,
+			);
+			path = DebaTemps;
+			sourceTree = "<group>";
+		};
+		4FDA41C32390E028004CBF4C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4FDA41C42390E028004CBF4C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4FDA41D12390E029004CBF4C /* DebaTempsTests */ = {
+			isa = PBXGroup;
+			children = (
+				4FDA41D22390E029004CBF4C /* DebaTempsTests.swift */,
+				4FDA41D42390E029004CBF4C /* Info.plist */,
+			);
+			path = DebaTempsTests;
+			sourceTree = "<group>";
+		};
+		4FDA41DC2390E029004CBF4C /* DebaTempsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4FDA41DD2390E029004CBF4C /* DebaTempsUITests.swift */,
+				4FDA41DF2390E029004CBF4C /* Info.plist */,
+			);
+			path = DebaTempsUITests;
+			sourceTree = "<group>";
+		};
+		4FDA41E62390E029004CBF4C /* DebaTemps WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				4FDA41E72390E029004CBF4C /* Interface.storyboard */,
+				4FDA41EA2390E029004CBF4C /* Assets.xcassets */,
+				4FDA41EC2390E029004CBF4C /* Info.plist */,
+			);
+			path = "DebaTemps WatchKit App";
+			sourceTree = "<group>";
+		};
+		4FDA41F52390E029004CBF4C /* DebaTemps WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4FDA41F62390E029004CBF4C /* ContentView.swift */,
+				4FDA41F82390E029004CBF4C /* HostingController.swift */,
+				4FDA41FA2390E029004CBF4C /* ExtensionDelegate.swift */,
+				4FDA41FC2390E029004CBF4C /* NotificationController.swift */,
+				4FDA41FE2390E029004CBF4C /* NotificationView.swift */,
+				4FDA42002390E029004CBF4C /* ComplicationController.swift */,
+				4FDA42022390E02A004CBF4C /* Assets.xcassets */,
+				4FDA42072390E02A004CBF4C /* Info.plist */,
+				4FDA42082390E02A004CBF4C /* PushNotificationPayload.apns */,
+				4FDA42042390E02A004CBF4C /* Preview Content */,
+			);
+			path = "DebaTemps WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		4FDA42042390E02A004CBF4C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4FDA42052390E02A004CBF4C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4FDA41B72390E027004CBF4C /* DebaTemps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDA42132390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTemps" */;
+			buildPhases = (
+				4FDA41B42390E027004CBF4C /* Sources */,
+				4FDA41B52390E027004CBF4C /* Frameworks */,
+				4FDA41B62390E027004CBF4C /* Resources */,
+				4FDA42122390E02A004CBF4C /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FDA41E52390E029004CBF4C /* PBXTargetDependency */,
+			);
+			name = DebaTemps;
+			productName = DebaTemps;
+			productReference = 4FDA41B82390E027004CBF4C /* DebaTemps.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4FDA41CD2390E029004CBF4C /* DebaTempsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDA42162390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTempsTests" */;
+			buildPhases = (
+				4FDA41CA2390E029004CBF4C /* Sources */,
+				4FDA41CB2390E029004CBF4C /* Frameworks */,
+				4FDA41CC2390E029004CBF4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FDA41D02390E029004CBF4C /* PBXTargetDependency */,
+			);
+			name = DebaTempsTests;
+			productName = DebaTempsTests;
+			productReference = 4FDA41CE2390E029004CBF4C /* DebaTempsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4FDA41D82390E029004CBF4C /* DebaTempsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDA42192390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTempsUITests" */;
+			buildPhases = (
+				4FDA41D52390E029004CBF4C /* Sources */,
+				4FDA41D62390E029004CBF4C /* Frameworks */,
+				4FDA41D72390E029004CBF4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FDA41DB2390E029004CBF4C /* PBXTargetDependency */,
+			);
+			name = DebaTempsUITests;
+			productName = DebaTempsUITests;
+			productReference = 4FDA41D92390E029004CBF4C /* DebaTempsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		4FDA41E12390E029004CBF4C /* DebaTemps WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDA420F2390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTemps WatchKit App" */;
+			buildPhases = (
+				4FDA41E02390E029004CBF4C /* Resources */,
+				4FDA420E2390E02A004CBF4C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FDA41F42390E029004CBF4C /* PBXTargetDependency */,
+			);
+			name = "DebaTemps WatchKit App";
+			productName = "DebaTemps WatchKit App";
+			productReference = 4FDA41E22390E029004CBF4C /* DebaTemps WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		4FDA41F02390E029004CBF4C /* DebaTemps WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDA420B2390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTemps WatchKit Extension" */;
+			buildPhases = (
+				4FDA41ED2390E029004CBF4C /* Sources */,
+				4FDA41EE2390E029004CBF4C /* Frameworks */,
+				4FDA41EF2390E029004CBF4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DebaTemps WatchKit Extension";
+			productName = "DebaTemps WatchKit Extension";
+			productReference = 4FDA41F12390E029004CBF4C /* DebaTemps WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4FDA41B02390E027004CBF4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = lrcstudios;
+				TargetAttributes = {
+					4FDA41B72390E027004CBF4C = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					4FDA41CD2390E029004CBF4C = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 4FDA41B72390E027004CBF4C;
+					};
+					4FDA41D82390E029004CBF4C = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 4FDA41B72390E027004CBF4C;
+					};
+					4FDA41E12390E029004CBF4C = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					4FDA41F02390E029004CBF4C = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 4FDA41B32390E027004CBF4C /* Build configuration list for PBXProject "DebaTemps" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4FDA41AF2390E027004CBF4C;
+			productRefGroup = 4FDA41B92390E027004CBF4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4FDA41B72390E027004CBF4C /* DebaTemps */,
+				4FDA41CD2390E029004CBF4C /* DebaTempsTests */,
+				4FDA41D82390E029004CBF4C /* DebaTempsUITests */,
+				4FDA41E12390E029004CBF4C /* DebaTemps WatchKit App */,
+				4FDA41F02390E029004CBF4C /* DebaTemps WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FDA41B62390E027004CBF4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDA41C82390E028004CBF4C /* LaunchScreen.storyboard in Resources */,
+				4FDA41C52390E028004CBF4C /* Preview Assets.xcassets in Resources */,
+				4FCC9FD023AF010900FE430D /* Assets.xcassets in Resources */,
+				4FDA41C22390E028004CBF4C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41CC2390E029004CBF4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41D72390E029004CBF4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41E02390E029004CBF4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDA41EB2390E029004CBF4C /* Assets.xcassets in Resources */,
+				4FDA41E92390E029004CBF4C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41EF2390E029004CBF4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDA42062390E02A004CBF4C /* Preview Assets.xcassets in Resources */,
+				4FDA42032390E02A004CBF4C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4FDA41B42390E027004CBF4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FCC9FD623AF01F100FE430D /* SceneDelegate.swift in Sources */,
+				4FCC9FD223AF016900FE430D /* logic.swift in Sources */,
+				4FCC9FD423AF01E300FE430D /* ContentView.swift in Sources */,
+				4FDA41BC2390E027004CBF4C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41CA2390E029004CBF4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDA41D32390E029004CBF4C /* DebaTempsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41D52390E029004CBF4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDA41DE2390E029004CBF4C /* DebaTempsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDA41ED2390E029004CBF4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDA41F92390E029004CBF4C /* HostingController.swift in Sources */,
+				4FDA41F72390E029004CBF4C /* ContentView.swift in Sources */,
+				4FDA41FD2390E029004CBF4C /* NotificationController.swift in Sources */,
+				4FDA41FB2390E029004CBF4C /* ExtensionDelegate.swift in Sources */,
+				4FDA41FF2390E029004CBF4C /* NotificationView.swift in Sources */,
+				4FDA42012390E029004CBF4C /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4FDA41D02390E029004CBF4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FDA41B72390E027004CBF4C /* DebaTemps */;
+			targetProxy = 4FDA41CF2390E029004CBF4C /* PBXContainerItemProxy */;
+		};
+		4FDA41DB2390E029004CBF4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FDA41B72390E027004CBF4C /* DebaTemps */;
+			targetProxy = 4FDA41DA2390E029004CBF4C /* PBXContainerItemProxy */;
+		};
+		4FDA41E52390E029004CBF4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FDA41E12390E029004CBF4C /* DebaTemps WatchKit App */;
+			targetProxy = 4FDA41E42390E029004CBF4C /* PBXContainerItemProxy */;
+		};
+		4FDA41F42390E029004CBF4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FDA41F02390E029004CBF4C /* DebaTemps WatchKit Extension */;
+			targetProxy = 4FDA41F32390E029004CBF4C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4FDA41C62390E028004CBF4C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FDA41C72390E028004CBF4C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4FDA41E72390E029004CBF4C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FDA41E82390E029004CBF4C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FDA42092390E02A004CBF4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4FDA420A2390E02A004CBF4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4FDA420C2390E02A004CBF4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DebaTemps WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "DebaTemps WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTemps.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		4FDA420D2390E02A004CBF4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DebaTemps WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "DebaTemps WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTemps.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		4FDA42102390E02A004CBF4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				IBSC_MODULE = DebaTemps_WatchKit_Extension;
+				INFOPLIST_FILE = "DebaTemps WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTemps.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		4FDA42112390E02A004CBF4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				IBSC_MODULE = DebaTemps_WatchKit_Extension;
+				INFOPLIST_FILE = "DebaTemps WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTemps.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		4FDA42142390E02A004CBF4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DebaTemps/Preview Content\"";
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DebaTemps/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTemps;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4FDA42152390E02A004CBF4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DebaTemps/Preview Content\"";
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DebaTemps/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTemps;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4FDA42172390E02A004CBF4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				INFOPLIST_FILE = DebaTempsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTempsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DebaTemps.app/DebaTemps";
+			};
+			name = Debug;
+		};
+		4FDA42182390E02A004CBF4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				INFOPLIST_FILE = DebaTempsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTempsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DebaTemps.app/DebaTemps";
+			};
+			name = Release;
+		};
+		4FDA421A2390E02A004CBF4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				INFOPLIST_FILE = DebaTempsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTempsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DebaTemps;
+			};
+			name = Debug;
+		};
+		4FDA421B2390E02A004CBF4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XZR42KR6H;
+				INFOPLIST_FILE = DebaTempsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lrc.DebaTempsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DebaTemps;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FDA41B32390E027004CBF4C /* Build configuration list for PBXProject "DebaTemps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDA42092390E02A004CBF4C /* Debug */,
+				4FDA420A2390E02A004CBF4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDA420B2390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTemps WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDA420C2390E02A004CBF4C /* Debug */,
+				4FDA420D2390E02A004CBF4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDA420F2390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTemps WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDA42102390E02A004CBF4C /* Debug */,
+				4FDA42112390E02A004CBF4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDA42132390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTemps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDA42142390E02A004CBF4C /* Debug */,
+				4FDA42152390E02A004CBF4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDA42162390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTempsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDA42172390E02A004CBF4C /* Debug */,
+				4FDA42182390E02A004CBF4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDA42192390E02A004CBF4C /* Build configuration list for PBXNativeTarget "DebaTempsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDA421A2390E02A004CBF4C /* Debug */,
+				4FDA421B2390E02A004CBF4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4FDA41B02390E027004CBF4C /* Project object */;
+}
