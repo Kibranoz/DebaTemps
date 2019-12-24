@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F402FF523B2D8AC002285D6 /* logicWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F402FF423B2D8AC002285D6 /* logicWatch.swift */; };
 		4FCC9FD023AF010900FE430D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC9FCF23AF010900FE430D /* Assets.xcassets */; };
 		4FCC9FD223AF016900FE430D /* logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC9FD123AF016900FE430D /* logic.swift */; };
 		4FCC9FD423AF01E300FE430D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC9FD323AF01E200FE430D /* ContentView.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F402FF423B2D8AC002285D6 /* logicWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logicWatch.swift; sourceTree = "<group>"; };
 		4FCC9FCF23AF010900FE430D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DebaTemps/Assets.xcassets; sourceTree = "<group>"; };
 		4FCC9FD123AF016900FE430D /* logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logic.swift; sourceTree = "<group>"; };
 		4FCC9FD323AF01E200FE430D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				4FDA41F82390E029004CBF4C /* HostingController.swift */,
 				4FDA41FA2390E029004CBF4C /* ExtensionDelegate.swift */,
 				4FDA41FC2390E029004CBF4C /* NotificationController.swift */,
+				4F402FF423B2D8AC002285D6 /* logicWatch.swift */,
 				4FDA41FE2390E029004CBF4C /* NotificationView.swift */,
 				4FDA42002390E029004CBF4C /* ComplicationController.swift */,
 				4FDA42022390E02A004CBF4C /* Assets.xcassets */,
@@ -480,6 +483,7 @@
 				4FDA41FD2390E029004CBF4C /* NotificationController.swift in Sources */,
 				4FDA41FB2390E029004CBF4C /* ExtensionDelegate.swift in Sources */,
 				4FDA41FF2390E029004CBF4C /* NotificationView.swift in Sources */,
+				4F402FF523B2D8AC002285D6 /* logicWatch.swift in Sources */,
 				4FDA42012390E029004CBF4C /* ComplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,9 +17,11 @@ struct ContentView: View {
     @State var pausePlay = "⏸"
     @State var tempsMillieu = 420;
     @State var round = 7;
+    var debatCP = CP();
     //il va falloir un bouton pause
     var body: some View {
         VStack {
+            Text(String(self.round))
             Text(a)
                 .font(.largeTitle)
                 .fontWeight(.semibold)
@@ -35,7 +37,7 @@ struct ContentView: View {
                 let chronoMillieu = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chronoMilieu) in
                     if self.round > 2 {
                     if self.tempsMillieu != 0{
-                        self.tempsString = String(formatTime(time: self.tempsMillieu))
+                        self.tempsString = String(self.debatCP.formatTime(time: self.tempsMillieu))
                         if self.pausePlay == "⏸"{
                             self.tempsMillieu -= 1
                         }
@@ -70,13 +72,7 @@ struct ContentView: View {
             Text(tempsString)
             HStack{
                 Button(action: {
-                    if self.tempsMillieu == 0{
-                        self.round += 1
-                    }
-                    else {
-                        self.tempsMillieu = 0
-                        // ne marche pas complètement car on enlève quand même une round lorsqu'on le fait à cause de l'autre chronomètre...
-                    }
+                    self.debatCP.tourPrecdedent(time: &self.tempsMillieu, round: &self.round)
                 }, label: {
                     Text("⏪")
                 })
@@ -99,7 +95,7 @@ struct ContentView: View {
                     
                 }
                 Button(action: {
-                    prochainTour(time: &self.tempsMillieu)
+                    self.debatCP.prochainTour(time: &self.tempsMillieu)
                 }, label: {
                     Text("⏩")
                 } )

@@ -1,11 +1,12 @@
 //
-//  logic.swift
-//  DebaTemps
+//  logicWatch.swift
+//  DebaTemps WatchKit Extension
 //
-//  Created by Louis Couture on 2019-11-22.
+//  Created by Louis Couture on 2019-12-24.
 //  Copyright © 2019 lrcstudios. All rights reserved.
 //
 
+import Foundation
 import Foundation
 
 class Debat{
