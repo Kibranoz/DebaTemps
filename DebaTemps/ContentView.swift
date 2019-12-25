@@ -25,7 +25,6 @@ struct ContentView: View {
             Text(a)
                 .font(.largeTitle)
                 .fontWeight(.semibold)
-                .foregroundColor(Color.black)
                 .lineLimit(nil)
             
             Text(partie)
@@ -35,31 +34,8 @@ struct ContentView: View {
                 self.enCours = "Recommencer"
                 //var round = 7
                 let chronoMillieu = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chronoMilieu) in
-                    if self.round > 2 {
-                    if self.tempsMillieu != 0{
-                        self.tempsString = String(self.debatCP.formatTime(time: self.tempsMillieu))
-                        if self.pausePlay == "⏸"{
-                            self.tempsMillieu -= 1
-                        }
-                        if self.tempsMillieu > 360{
-                            self.partie = "1 min temps protégé"
-                        }
-                        if self.tempsMillieu < 360 && self.tempsMillieu > 60 {
-                            self.partie = "5 min temps non protégé"
-                        }
-                        if self.tempsMillieu < 60 {
-                            self.partie = "1 min temps protégé"
-                        }
-                    }
-                    else{
-                        //chronoMilieu.invalidate()
-                        self.round -= 1
-                        self.tempsMillieu = 420
-                        
-                        //self.partie = "Fin"
-                    }
-                }
-                    else{
+                    self.debatCP.verifierEtatDebut(round: &self.round, tempsActuel: &self.tempsMillieu, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
+                    if self.round<=2{
                         chronoMilieu.invalidate()
                         self.partie = "Fin"
                     }
