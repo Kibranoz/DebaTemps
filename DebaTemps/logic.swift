@@ -9,6 +9,9 @@
 import Foundation
 
 class Debat{
+    var rondeFermeture:Int{
+        return 0;
+    }
     var tempsTotalMillieu:Int{//420
         return 0;
     };
@@ -18,14 +21,23 @@ class Debat{
     var tempsLibre:Int{//360
         return 0;
     }
+    var tempsFermeture:Int{
+        return 0
+    }
     func formatTime(time:Int) -> String {
         let minutes:Int = time/60
         let seconds:Int = time%60
         return String(minutes) + ":" + String(seconds)
     }
-    func prochainTour(time: inout Int)->Void{
+    func prochainTour(time: inout Int, round : inout Int)->Void{
+        if round > rondeFermeture {
         let tempsAvantLaFin = time % self.tempsTotalMillieu
-        time -= tempsAvantLaFin
+            time -= tempsAvantLaFin
+        }
+        if round <= rondeFermeture{
+            let tempsAvantLaFin = time % self.tempsFermeture
+            time -= tempsAvantLaFin
+        }
     }
     func tourPrecdedent(time: inout Int, round: inout Int)->Void{
         if time == 0{
@@ -38,7 +50,7 @@ class Debat{
         }
     }
     func verifierEtatDebut(round: inout Int, tempsActuel: inout Int, pause:inout String, partie: inout String, tempsStr:inout String){
-        if round > 2 {
+        if round > rondeFermeture {
             if tempsActuel != 0{
                 tempsStr = String(self.formatTime(time: tempsActuel))
                 if pause == "⏸"{
@@ -56,13 +68,33 @@ class Debat{
             }
             else{
                 round -= 1
-                tempsActuel = 420
+                tempsActuel = tempsTotalMillieu
         }
     }
-    }
+        }
+        func verifierEtatFin(round: inout Int, tempsActuel: inout Int, pause:inout String, partie: inout String, tempsStr:inout String){
+            if round > 0 {
+            if tempsActuel != 0 {
+                tempsStr = String(self.formatTime(time: tempsActuel))
+            if pause == "⏸"{
+                tempsActuel -= 1
+            }
+            partie = "3 min temps protégé"
+                }
+            else {
+              round -= 1
+                tempsActuel = tempsFermeture
+            }
+                
+            }
+        }
 }
 
 class CP:Debat{
+    
+    override var rondeFermeture:Int{
+        return 2;
+    }
     override var tempsTotalMillieu : Int{
         return 420;
     };
@@ -73,5 +105,9 @@ class CP:Debat{
     override var tempsLibre:Int{//360
         return 360;
     }
+    override var tempsFermeture: Int{
+        return 180;
+    }
     
 }
+

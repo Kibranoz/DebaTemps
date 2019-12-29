@@ -16,6 +16,7 @@ struct ContentView: View {
     @State var enCours = "CanadienParlementaire - Commencer"
     @State var pausePlay = "⏸"
     @State var tempsMillieu = 420;
+    @State var tempsFermeture = 180
     @State var round = 7;
     var debatCP = CP();
     //il va falloir un bouton pause
@@ -33,14 +34,17 @@ struct ContentView: View {
             Button(action: {
                 self.enCours = "Recommencer"
                 //var round = 7
-                let chronoMillieu = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chronoMilieu) in
+                let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
                     self.debatCP.verifierEtatDebut(round: &self.round, tempsActuel: &self.tempsMillieu, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
-                    if self.round<=2{
-                        chronoMilieu.invalidate()
-                        self.partie = "Fin"
+                    if self.round <= 2{
+                         self.debatCP.verifierEtatFin(round: &self.round, tempsActuel: &self.tempsFermeture, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
+                        
                     }
-                    
+                    if self.round <= 0 {
+                        chrono.invalidate()
+                    }
                 }
+
                 self.a = "CP"
                 }) {
                     Text(enCours)
@@ -48,7 +52,13 @@ struct ContentView: View {
             Text(tempsString)
             HStack{
                 Button(action: {
-                    self.debatCP.tourPrecdedent(time: &self.tempsMillieu, round: &self.round)
+                    if self.round >= 2 {
+                       self.debatCP.tourPrecdedent(time: &self.tempsMillieu, round: &self.round)
+                    }
+                    if self.round < 2 {
+                      self.debatCP.tourPrecdedent(time: &self.tempsFermeture, round: &self.round)
+                    }
+                    
                 }, label: {
                     Text("⏪")
                 })
@@ -71,7 +81,12 @@ struct ContentView: View {
                     
                 }
                 Button(action: {
-                    self.debatCP.prochainTour(time: &self.tempsMillieu)
+                    if self.round > 2 {
+                        self.debatCP.prochainTour(time: &self.tempsMillieu, round: &self.round)
+                    }
+                    else {
+                        self.debatCP.prochainTour(time: &self.tempsFermeture,round: &self.round)
+                    }
                 }, label: {
                     Text("⏩")
                 } )
