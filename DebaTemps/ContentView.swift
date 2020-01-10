@@ -14,7 +14,7 @@ struct ContentView: View {
     @State var partie = "Partie du débat"
     @State var tempsString = "Temps ici"
     @State var enCours = "CanadienParlementaire - Commencer"
-    @State var pausePlay = "⏸"
+    @State var pausePlay = "pause"
     @State var tempsMillieu = 420;
     @State var tempsFermeture = 180
     @State var round = 7;
@@ -60,15 +60,15 @@ struct ContentView: View {
                     }
                     
                 }, label: {
-                    Text("⏪")
+                    Image("backwards").renderingMode(.original)
                 })
                 Button(action: {
                     switch (self.pausePlay) {
-                    case "▶️" :
-                        self.pausePlay = "⏸"
+                    case "play" :
+                        self.pausePlay = "pause"
                         break
-                    case "⏸" :
-                        self.pausePlay = "▶️"
+                    case "pause" :
+                        self.pausePlay = "play"
                         break
                     default:
                         self.pausePlay = "Erreur"
@@ -76,8 +76,8 @@ struct ContentView: View {
                     
                     
                 }) {
-                    Text(pausePlay)
-                        .lineLimit(nil)
+                    Image(self.pausePlay).renderingMode(.original)
+
                     
                 }
                 Button(action: {
@@ -88,9 +88,8 @@ struct ContentView: View {
                         self.debatCP.prochainTour(time: &self.tempsFermeture,round: &self.round)
                     }
                 }, label: {
-                    Text("⏩")
+                    Image("forward").renderingMode(.original)
                 } )
-                
             }
         }
 

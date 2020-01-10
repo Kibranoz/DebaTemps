@@ -53,7 +53,7 @@ class Debat{
         if round > rondeFermeture {
             if tempsActuel != 0{
                 tempsStr = String(self.formatTime(time: tempsActuel))
-                if pause == "⏸"{
+                if pause == "pause"{
                     tempsActuel -= 1
                 }
                 if tempsActuel > self.tempsLibre{
@@ -76,7 +76,7 @@ class Debat{
             if round > 0 {
             if tempsActuel != 0 {
                 tempsStr = String(self.formatTime(time: tempsActuel))
-            if pause == "⏸"{
+            if pause == "pause"{
                 tempsActuel -= 1
             }
             partie = "3 min temps protégé"
