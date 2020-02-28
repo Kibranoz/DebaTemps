@@ -91,7 +91,7 @@ class Debat{
 }
 
 class CP:Debat{
-    
+    //changer le temps selon le mode choisi
     override var rondeFermeture:Int{
         return 2;
     }

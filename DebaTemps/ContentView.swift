@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
- 
 
 struct ContentView: View {
     @State var a = "Chronometre"
@@ -18,6 +17,8 @@ struct ContentView: View {
     @State var tempsMillieu = 420;
     @State var tempsFermeture = 180
     @State var round = 7;
+    @State var répartitionPM = "7/3"
+    @State private var showingAlert = false
     var debatCP = CP();
     //il va falloir un bouton pause
     var body: some View {
@@ -29,11 +30,9 @@ struct ContentView: View {
                 .lineLimit(nil)
             
             Text(partie)
-                .font(.subheadline)
-                
             Button(action: {
-                self.enCours = "Recommencer"
-                //var round = 7
+                self.showingAlert = true
+                if self.enCours != "Recommencer"{
                 let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
                     self.debatCP.verifierEtatDebut(round: &self.round, tempsActuel: &self.tempsMillieu, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                     if self.round <= 2{
@@ -42,13 +41,29 @@ struct ContentView: View {
                     }
                     if self.round <= 0 {
                         chrono.invalidate()
+                        self.enCours = "Canadien Parlementaire - Commencer"
                     }
                 }
+                }
+                else{
+                    self.tempsMillieu = 420
+                    self.tempsFermeture = 180
+                    self.round = 7
+                }
+                self.enCours = "Recommencer"
 
                 self.a = "CP"
-                }) {
-                    Text(enCours)
-            }
+            }, label: {
+                Text(enCours)
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("6/4 ou 7/3"), message: Text("6/4 pour avoir plus de temps à la fin et 7/3 pour en avoir plus au début"), primaryButton: .default(Text("6/4"), action: {
+                            self.répartitionPM = "6/4";
+                        }), secondaryButton: .default(Text("7/3"), action: {
+                            self.répartitionPM = "7/3"
+                        }))
+                }
+            })
+                
             Text(tempsString)
             HStack{
                 Button(action: {
