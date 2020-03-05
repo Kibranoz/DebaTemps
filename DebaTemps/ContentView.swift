@@ -37,14 +37,16 @@ struct ContentView: View {
             Text(partie)
             Button(action: {
                 self.showingAlert = true
-                self.debatCP.modePm()
+                //self.debatCP.modePm()
                 if self.enCours != "Recommencer"{
                 let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
-                    if self.round > 2 {
+                    self.round = self.debatCP.returnRound();
+                    if self.debatCP.returnRound() > 2{
                     self.debatCP.verifierEtatDebut(round: &self.round, tempsActuel: &self.tempsMillieu, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                         self.debatCP.updateRound(round: &self.round)
                     }
                     else{
+                        self.round = self.debatCP.returnRound();
                          self.debatCP.verifierEtatFin(round: &self.round, tempsActuel: &self.tempsFermeture, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                         self.debatCP.updateRound(round: &self.round)
                         
@@ -69,7 +71,7 @@ struct ContentView: View {
                         Alert(title: Text("6/4 ou 7/3"), message: Text("6/4 pour avoir plus de temps à la fin et 7/3 pour en avoir plus au début"), primaryButton: .default(Text("6/4"), action: {
                             self.debatCP.changerModePM(newModePM: self.$sixQuatre);
                             self.tempsMillieu = 360;
-                            self.tempsFermeture = 240;
+                            self.tempsFermeture = self.debatCP.returnTempsFermeture(); //le problème est ici
                         }), secondaryButton: .default(Text("7/3"), action: {
                             self.debatCP.changerModePM(newModePM: self.$repartitionPM)
                             self.tempsMillieu = 420
@@ -81,7 +83,7 @@ struct ContentView: View {
             Text(tempsString)
             HStack{
                 Button(action: {
-                    if self.round > 2 {
+                    if self.debatCP.returnRound() > 2 {
                        self.debatCP.tourPrecdedent(time: &self.tempsMillieu, round: &self.round)
                     }
                     else{
@@ -111,7 +113,7 @@ struct ContentView: View {
                 }
                 Button(action: {
                     self.round = self.debatCP.returnRound();
-                    if self.round > 3 {
+                    if self.debatCP.returnRound() > 3 {
                         self.debatCP.prochainTour(time: &self.tempsMillieu, round: &self.round)
                         self.debatCP.verifierEtatDebut(round: &self.round, tempsActuel: &self.tempsMillieu, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                         //le probleme est ici ronde de 3 au lieu de 2...

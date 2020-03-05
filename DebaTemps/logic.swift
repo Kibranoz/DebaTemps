@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 class Debat{
-    var ronde = 0;
+    var ronde = 7;
      var rondeFermeture:Int{
         return 0;
     }
@@ -72,17 +72,25 @@ class Debat{
                 }
             }
             else{
+                //à 3 les deux runnent enc même temps
                 round -= 1
                 self.ronde = round
                 //il fallait updater round
+                if self.ronde == 2{
+                    tempsActuel = tempsFermeture;
+                }
+                else{
                 tempsActuel = tempsTotalMillieu
+                }
         }
             self.ronde = round
     }
         }
         func verifierEtatFin(round: inout Int, tempsActuel: inout Int, pause:inout String, partie: inout String, tempsStr:inout String){
             self.ronde = round
+            //tempsActuel = tempsFermeture
             if self.ronde <= rondeFermeture + 1{
+                //c'est que on a pas enlevé un a rount encore
             if tempsActuel != 0 {
                 tempsStr = String(self.formatTime(time: tempsActuel))
             if pause == "pause"{
@@ -139,7 +147,7 @@ class CP:Debat{
              if self.ronde == 1 && self.modePM == "6/4" {
                 return 240
             }
-             else {
+            else{
             return 180;
             }
     }
@@ -154,6 +162,9 @@ class CP:Debat{
     }
     func returnRound()->Int{
         return self.ronde
+    }
+    func returnTempsFermeture()->Int{
+        return tempsFermeture;
     }
     //changer le temps selon le mode choisi
     
