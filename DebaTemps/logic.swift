@@ -112,9 +112,10 @@ class Debat{
 //utiliser les init et avoir des paramètre selon le mode choisi 
 class CP:Debat{
     @Binding var modePM:String
-    
-    init(modePM:Binding <String>){
+    @Binding var modeCO:String
+    init(modePM:Binding <String>, modeCO:Binding<String>){
         self._modePM = modePM
+        self._modeCO = modeCO
         super.init()
 
     }
@@ -125,6 +126,10 @@ class CP:Debat{
             if self.ronde == 7 && self.modePM == "6/4" {
                 return 360
             }
+            if self.ronde == 6 && self.modeCO == "Traditionnelle"{
+                return 600;
+            }
+            
             else{
                 return 420;
             }
@@ -147,12 +152,18 @@ class CP:Debat{
              if self.ronde == 1 && self.modePM == "6/4" {
                 return 240
             }
+            if self.ronde == 2 && self.modeCO == "Traditionnelle" {
+                return 0;
+            }
             else{
             return 180;
             }
     }
     func changerModePM(newModePM:Binding<String>){
         self._modePM = newModePM
+    }
+    func changerModeCO(newModeCO:Binding<String>){
+        self._modeCO = newModeCO
     }
     func modePm(){
         print(self._modePM)
@@ -166,6 +177,10 @@ class CP:Debat{
     func returnTempsFermeture()->Int{
         return tempsFermeture;
     }
+    func returnTempsMilieu()->Int {
+        return tempsTotalMillieu;
+    }
+        
     //changer le temps selon le mode choisi
     
     

@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+enum ActiveAlert {
+    case first, second
+}
+
 struct ContentView: View {
     @State var a = "Chronometre"
     @State var partie = "Partie du débat"
@@ -18,13 +22,16 @@ struct ContentView: View {
     @State var tempsFermeture = 180
     @State var round = 7;
     @State var repartitionPM = "7/3"
+    @State var repartitionCO = "Split"
+    @State var traditionnelle = "Traditionnelle"
     var debatCP:CP!=nil
     @State private var showingAlert = false
+    @State private var activeAlert :ActiveAlert = .first
     @State var sixQuatre = "6/4"
     //il va falloir un bouton pause
     
     init(){
-        debatCP = CP(modePM: $repartitionPM)
+        debatCP = CP(modePM: $repartitionPM, modeCO:$repartitionCO)
     }
     var body: some View {
         VStack {
@@ -36,7 +43,7 @@ struct ContentView: View {
             
             Text(partie)
             Button(action: {
-                self.showingAlert = true
+                self.showAlert(.first)
                 //self.debatCP.modePm()
                 if self.enCours != "Recommencer"{
                 let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
@@ -68,17 +75,32 @@ struct ContentView: View {
             }, label: {
                 Text(enCours)
                     .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("6/4 ou 7/3"), message: Text("6/4 pour avoir plus de temps à la fin et 7/3 pour en avoir plus au début"), primaryButton: .default(Text("6/4"), action: {
+                        switch activeAlert{
+                        case .first:
+                            //self.showAlert(.second)
+                         return Alert(title: Text("6/4 ou 7/3"), message: Text("6/4 pour avoir plus de temps à la fin et 7/3 pour en avoir plus au début"), primaryButton: .default(Text("6/4"), action: {
                             self.debatCP.changerModePM(newModePM: self.$sixQuatre);
                             self.tempsMillieu = 360;
-                            self.tempsFermeture = self.debatCP.returnTempsFermeture(); //le problème est ici
+                            self.tempsFermeture = self.debatCP.returnTempsFermeture();
+                            self.showAlert(.second)
                         }), secondaryButton: .default(Text("7/3"), action: {
                             self.debatCP.changerModePM(newModePM: self.$repartitionPM)
                             self.tempsMillieu = 420
                             self.tempsFermeture = 180
+                            self.showAlert(.second)
                         }))
-                }
-            })
+                        case .second :
+                        return Alert(title: Text("Split ou traditionnel"), message: Text("Split : 7/3 Traditionnel : 10/0 "), primaryButton: .default(Text("Split"), action: {
+                            self.debatCP.changerModeCO(newModeCO: self.$repartitionCO);
+                            self.tempsMillieu = self.debatCP.returnTempsMilieu();
+                            self.tempsFermeture = self.debatCP.returnTempsFermeture();
+                        }), secondaryButton: .default(Text("Traditionnelle"), action: {
+                            self.debatCP.changerModeCO(newModeCO: self.$traditionnelle)
+                            self.tempsMillieu = self.debatCP.returnTempsMilieu()
+                            self.tempsFermeture = self.debatCP.returnTempsFermeture()
+                        }))
+                        }
+                }})
                 
             Text(tempsString)
             HStack{
@@ -129,9 +151,16 @@ struct ContentView: View {
                 } )
             }
         }
-
-  }
+    
 }
+    func showAlert(_ active: ActiveAlert) -> Void {
+          DispatchQueue.global().async {
+              self.activeAlert = active
+              self.showingAlert = true
+          }
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
