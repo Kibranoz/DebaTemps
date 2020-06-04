@@ -25,6 +25,9 @@ class Debat{
     var tempsFermeture:Int{
         return 0
     }
+    func returnRound()->Int{
+        fatalError("La classe fille doit override cette méthode")
+    }
     func formatTime(time:Int) -> String {
         let minutes:Int = time/60
         let seconds:Int = time%60
@@ -171,7 +174,7 @@ class CP:Debat{
     func updateRound(round:inout Int){
         self.ronde = round
     }
-    func returnRound()->Int{
+    override func returnRound()->Int{
         return self.ronde
     }
     func returnTempsFermeture()->Int{
