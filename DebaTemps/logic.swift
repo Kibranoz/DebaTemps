@@ -188,4 +188,10 @@ class CP:Debat{
     
     
 }
-
+class BP:Debat{
+    override init(){
+        super.init()
+        self.ronde = 8;
+    }
+}
+//est ce que c'est nécéssaire d'avoir deux fois round?

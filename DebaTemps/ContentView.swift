@@ -12,7 +12,23 @@ enum ActiveAlert {
     case first, second
 }
 
-struct ContentView: View {
+struct ContentView : View{
+    var body : some View {
+        NavigationView{
+            VStack{
+        NavigationLink(destination: BPView()) {
+            Text("Format British Parliamentary")
+                .foregroundColor(Color.blue);
+        }
+            NavigationLink(destination:cpView()) {
+                Text("Format Canadien Parlementaire")
+                .foregroundColor(Color.blue);
+            }
+            }}
+
+    }
+}
+struct cpView: View {
     @State var a = "Chronometre"
     @State var partie = "Partie du débat"
     @State var tempsString = "Temps ici"
@@ -153,11 +169,7 @@ struct ContentView: View {
                     }
                     
             }
-            NavigationLink(destination: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Destination@*/Text("Destination")/*@END_MENU_TOKEN@*/) {
-                Text("BP")
-                    .foregroundColor(Color.blue);
             }
-        }
         
 
     
@@ -175,4 +187,16 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+
+struct BPView :View {
+    var body : some View {
+        
+        VStack{
+            Text("Hello wortld")
+        }
+        
+    }
+
 }
