@@ -13,6 +13,7 @@ class Debat{
      var rondeFermeture:Int{
         return 0;
     }
+    var tempsActuel = 0;
      var tempsTotalMillieu:Int{//420
         return 0;
     };
@@ -33,82 +34,76 @@ class Debat{
         let seconds:Int = time%60
         return String(minutes) + ":" + String(seconds)
     }
-    func prochainTour(time: inout Int, round : inout Int)->Void{
-        self.ronde = round
+    func prochainTour()->Void{
         if self.ronde > rondeFermeture {
-        let tempsAvantLaFin = time % self.tempsTotalMillieu
-            time -= tempsAvantLaFin
+            let tempsAvantLaFin = self.tempsActuel % self.tempsTotalMillieu
+            self.tempsActuel -= tempsAvantLaFin
         }
         if self.ronde <= rondeFermeture{
-            let tempsAvantLaFin = time % self.tempsFermeture
-            time -= tempsAvantLaFin
+            let tempsAvantLaFin = self.tempsActuel % self.tempsFermeture
+            self.tempsActuel -= tempsAvantLaFin
         }
-        self.ronde = round
-        
     }
-    func tourPrecdedent(time: inout Int, round: inout Int)->Void{
-        if time == 0{
-            round += 2
+    func tourPrecdedent()->Void{
+        if self.tempsActuel == 0{
+            self.ronde += 2
         }
         else {
-            time = 0
-            round += 2
+            self.tempsActuel = 0
+            self.ronde += 2
             // ne marche pas complètement car on enlève quand même une round lorsqu'on le fait à cause de l'autre chronomètre...
         }
-        self.ronde = round
     }
-    func verifierEtatDebut(round: inout Int, tempsActuel: inout Int, pause:inout String, partie: inout String, tempsStr:inout String){
+    func verifierEtatDebut(pause:inout String, partie: inout String, tempsStr:inout String){
         if self.ronde > rondeFermeture {
-            if tempsActuel != 0{
+            if self.tempsActuel != 0{
                 tempsStr = String(self.formatTime(time: tempsActuel))
                 if pause == "pause"{
-                    tempsActuel -= 1
+                    self.tempsActuel -= 1
                 }
-                if tempsActuel > self.tempsLibre{
+                if self.tempsActuel > self.tempsLibre{
                     partie = "1 min temps protégé"
                 }
-                if tempsActuel < self.tempsLibre && tempsActuel > self.tempsProtege {
+                if self.tempsActuel < self.tempsLibre && tempsActuel > self.tempsProtege {
                     partie = "5 min temps non protégé"
                 }
-                if tempsActuel < self.tempsProtege {
+                if self.tempsActuel < self.tempsProtege {
                     partie = "1 min temps protégé"
                 }
             }
             else{
                 //à 3 les deux runnent enc même temps
-                round -= 1
-                self.ronde = round
+                self.ronde -= 1
                 //il fallait updater round
                 if self.ronde == 2{
-                    tempsActuel = tempsFermeture;
+                    self.tempsActuel = tempsFermeture;
                 }
                 else{
-                tempsActuel = tempsTotalMillieu
+                    self.tempsActuel = tempsTotalMillieu
                 }
         }
-            self.ronde = round
     }
+        func returnRound()->Int{
+               return self.ronde
+           }
         }
-        func verifierEtatFin(round: inout Int, tempsActuel: inout Int, pause:inout String, partie: inout String, tempsStr:inout String){
-            self.ronde = round
+        func verifierEtatFin(pause:inout String, partie: inout String, tempsStr:inout String){
             //tempsActuel = tempsFermeture
             if self.ronde <= rondeFermeture + 1{
                 //c'est que on a pas enlevé un a rount encore
-            if tempsActuel != 0 {
-                tempsStr = String(self.formatTime(time: tempsActuel))
+                if self.tempsActuel != 0 {
+                    tempsStr = String(self.formatTime(time: self.tempsActuel))
             if pause == "pause"{
-                tempsActuel -= 1
+                self.tempsActuel -= 1
             }
             partie = "3 min temps protégé"
                 }
             else {
-              round -= 1
-                self.ronde = round
-                tempsActuel = tempsFermeture
+                self.ronde -= 1
+                    self.tempsActuel = tempsFermeture
             }
                 
             }
-            self.ronde = round
         }
 
 }
@@ -120,6 +115,7 @@ class CP:Debat{
         self._modePM = modePM
         self._modeCO = modeCO
         super.init()
+        self.tempsActuel = 420;
 
     }
       override  var rondeFermeture:Int{
@@ -162,17 +158,30 @@ class CP:Debat{
             return 180;
             }
     }
+    func reset(){
+        self.ronde = 7;
+        if self.modePM == "6/4"{
+        self.tempsActuel = 360;
+        }
+        else {
+            self.tempsActuel = 420;
+        }
+    }
     func changerModePM(newModePM:Binding<String>){
         self._modePM = newModePM
+        if self.modePM == "6/4"{
+        self.tempsActuel = 360;
+        }
+        else {
+            self.tempsActuel = 420;
+        }
+        
     }
     func changerModeCO(newModeCO:Binding<String>){
         self._modeCO = newModeCO
     }
     func modePm(){
         print(self._modePM)
-    }
-    func updateRound(round:inout Int){
-        self.ronde = round
     }
     override func returnRound()->Int{
         return self.ronde
@@ -192,6 +201,21 @@ class BP:Debat{
     override init(){
         super.init()
         self.ronde = 8;
+        self.tempsActuel = 600;
     }
+    override var tempsLibre:Int{
+        return 360;
+    }
+    
+    override var tempsProtege:Int{//60
+        return 60;
+    }
+    
+    override func verifierEtatFin(pause:inout String, partie: inout String, tempsStr:inout String){
+        fatalError("Erreur toutes les rondes en bp sont de 7 minutes")
+    }
+    func reset(){
+           self.ronde = 8;
+       }
 }
 //est ce que c'est nécéssaire d'avoir deux fois round?

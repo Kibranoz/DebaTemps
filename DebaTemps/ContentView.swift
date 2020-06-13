@@ -29,12 +29,12 @@ struct ContentView : View{
     }
 }
 struct cpView: View {
-    @State var a = "Chronometre"
+    @State var mode = "Chronometre"
     @State var partie = "Partie du débat"
     @State var tempsString = "Temps ici"
     @State var enCours = "CanadienParlementaire - Commencer"
     @State var pausePlay = "pause"
-    @State var tempsMillieu = 420;
+    @State var tempsMillieu = 420; //on en a besoin car on veut pouvoir changer le temps actuel d'ici
     @State var tempsFermeture = 180
     @State var round = 7;
     @State var repartitionPM = "7/3"
@@ -53,7 +53,7 @@ struct cpView: View {
         VStack {
             VStack {
                     Text(String(self.round))
-                    Text(a)
+                    Text(mode)
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .lineLimit(nil)
@@ -63,32 +63,34 @@ struct cpView: View {
                         self.showAlert(.first)
                         //self.debatCP.modePm()
                         if self.enCours != "Recommencer"{
-                        let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
+                            let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
                             self.round = self.debatCP.returnRound();
                             if self.debatCP.returnRound() > 2{
-                            self.debatCP.verifierEtatDebut(round: &self.round, tempsActuel: &self.tempsMillieu, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
-                                self.debatCP.updateRound(round: &self.round)
+                            self.debatCP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                             }
                             else{
                                 self.round = self.debatCP.returnRound();
-                                 self.debatCP.verifierEtatFin(round: &self.round, tempsActuel: &self.tempsFermeture, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
-                                self.debatCP.updateRound(round: &self.round)
+                                 self.debatCP.verifierEtatFin(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                                 
                             }
                             if self.round <= 0 {
-                                chrono.invalidate()
-                                self.enCours = "Canadien Parlementaire - Commencer"
+                                self.debatCP.reset();
+                               // chrono.invalidate()
+                                //self.enCours = "Canadien Parlementaire - Commencer"
+                            }
+                            else{
+                                self.enCours = "Recommencer"
                             }
                         }
                         }
                         else{
                             self.tempsMillieu = 420
                             self.tempsFermeture = 180
-                            self.round = 7
+                            self.debatCP.reset();
                         }
-                        self.enCours = "Recommencer"
 
-                        self.a = "CP"
+
+                        self.mode = "CP"
                     }, label: {
                         Text(enCours)
                             .alert(isPresented: $showingAlert) {
@@ -123,10 +125,10 @@ struct cpView: View {
                     HStack{
                         Button(action: {
                             if self.debatCP.returnRound() > 2 {
-                               self.debatCP.tourPrecdedent(time: &self.tempsMillieu, round: &self.round)
+                               self.debatCP.tourPrecdedent()
                             }
                             else{
-                              self.debatCP.tourPrecdedent(time: &self.tempsFermeture, round: &self.round)
+                              self.debatCP.tourPrecdedent()
                             }
                             
                         }, label: {
@@ -153,15 +155,14 @@ struct cpView: View {
                         Button(action: {
                             self.round = self.debatCP.returnRound();
                             if self.debatCP.returnRound() > 3 {
-                                self.debatCP.prochainTour(time: &self.tempsMillieu, round: &self.round)
-                                self.debatCP.verifierEtatDebut(round: &self.round, tempsActuel: &self.tempsMillieu, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
+                                self.debatCP.prochainTour()
+                                self.debatCP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                                 //le probleme est ici ronde de 3 au lieu de 2...
                             }
                             else {
-                                self.debatCP.prochainTour(time: &self.tempsFermeture,round: &self.round)
+                                self.debatCP.prochainTour()
                                 //self.round -= 1
-                                self.debatCP.verifierEtatFin(round: &self.round, tempsActuel: &self.tempsFermeture, pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
-                                self.debatCP.updateRound(round: &self.round)
+                                self.debatCP.verifierEtatFin(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                             }
                         }, label: {
                             Image("forward").renderingMode(.original)
@@ -191,9 +192,43 @@ struct ContentView_Previews: PreviewProvider {
 
 
 struct BPView :View {
+    @State var mode = "Chronometre"
+       @State var partie = "Partie du débat"
+       @State var tempsString = "Temps ici"
+       @State var enCours = "BP - Commencer"
+       @State var pausePlay = "pause"
+       @State var tempsMillieu = 600;
+       @State var tempsFermeture = 0
+       @State var round = 8;
+       var debatBP:BP!=nil
+    init(){
+        debatBP = BP();
+    }
     var body : some View {
         
         VStack{
+            Button(action: {
+                if self.enCours != "Recommencer"{
+                    let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
+                        self.round = self.debatBP.returnRound();
+                        self.debatBP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
+                    }
+                    if self.debatBP.returnRound() <= 0 {
+                                                   chrono.invalidate()
+                                                   self.enCours = "BP - Commencer"
+                                               }
+                }
+                else{
+                    self.tempsMillieu = 600
+                    self.tempsFermeture = 0
+                    self.round = self.debatBP.returnRound();
+                }
+                self.enCours = "Recommencer"
+
+                self.mode = "BP"
+                
+            }, label: {Text(enCours)})
+                
             Text("Hello wortld")
         }
         
