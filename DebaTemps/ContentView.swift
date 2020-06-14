@@ -44,14 +44,17 @@ struct cpView: View {
     @State private var showingAlert = false
     @State private var activeAlert :ActiveAlert = .first
     @State var sixQuatre = "6/4"
+    @State var showContentView = false;
+   @Environment(\.presentationMode) var presentationMode
+
     //il va falloir un bouton pause
     
     init(){
         debatCP = CP(modePM: $repartitionPM, modeCO:$repartitionCO)
     }
     var body: some View {
-        VStack {
-            VStack {
+
+                VStack{
                     Text(String(self.round))
                     Text(mode)
                         .font(.largeTitle)
@@ -73,10 +76,15 @@ struct cpView: View {
                                  self.debatCP.verifierEtatFin(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                                 
                             }
-                            if self.round <= 0 {
-                                self.debatCP.reset();
-                               // chrono.invalidate()
-                                //self.enCours = "Canadien Parlementaire - Commencer"
+                                if self.debatCP.returnRound() <= 0 {
+                                    self.enCours = "Canadien Parlementaire - Commencer"
+                                    self.debatCP.reset();
+                                    chrono.invalidate();
+                                    self.presentationMode.wrappedValue.dismiss()
+                                    
+            
+                                
+                    
                             }
                             else{
                                 self.enCours = "Recommencer"
@@ -168,13 +176,14 @@ struct cpView: View {
                             Image("forward").renderingMode(.original)
                         } )
                     }
-                    
-            }
-            }
+            
+}
+            
+            
         
 
     
-}
+    }
     func showAlert(_ active: ActiveAlert) -> Void {
           DispatchQueue.global().async {
               self.activeAlert = active
