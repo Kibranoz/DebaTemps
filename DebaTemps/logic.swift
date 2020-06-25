@@ -75,7 +75,7 @@ class Debat{
                 //à 3 les deux runnent enc même temps
                 self.ronde -= 1
                 //il fallait updater round
-                if self.ronde == 2{
+                if self.ronde == rondeFermeture{
                     self.tempsActuel = tempsFermeture;
                 }
                 else{
@@ -203,6 +203,9 @@ class BP:Debat{
         self.ronde = 8;
         self.tempsActuel = 600;
     }
+    override var tempsTotalMillieu : Int{
+        return 600;
+    }
     override var tempsLibre:Int{
         return 360;
     }
@@ -210,9 +213,15 @@ class BP:Debat{
     override var tempsProtege:Int{//60
         return 60;
     }
+    override var rondeFermeture:Int{
+        return -1;
+    }
     
     override func verifierEtatFin(pause:inout String, partie: inout String, tempsStr:inout String){
         fatalError("Erreur toutes les rondes en bp sont de 7 minutes")
+    }
+    override func returnRound() -> Int {
+        return self.ronde
     }
     func reset(){
            self.ronde = 8;

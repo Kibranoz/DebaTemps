@@ -210,12 +210,21 @@ struct BPView :View {
        @State var tempsFermeture = 0
        @State var round = 8;
        var debatBP:BP!=nil
+    @State var showContentView = false;
+    @Environment(\.presentationMode) var presentationMode
     init(){
         debatBP = BP();
     }
     var body : some View {
-        
         VStack{
+        Text(String(self.round))
+        Text(mode)
+            .font(.largeTitle)
+            .fontWeight(.semibold)
+            .lineLimit(nil)
+        
+        Text(partie)
+        
             Button(action: {
                 if self.enCours != "Recommencer"{
                     let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
@@ -225,6 +234,7 @@ struct BPView :View {
                     if self.debatBP.returnRound() <= 0 {
                                                    chrono.invalidate()
                                                    self.enCours = "BP - Commencer"
+                        self.presentationMode.wrappedValue.dismiss()
                                                }
                 }
                 else{
@@ -238,9 +248,53 @@ struct BPView :View {
                 
             }, label: {Text(enCours)})
                 
-            Text("Hello wortld")
+             Text(tempsString)
+            HStack{
+                                    Button(action: {
+                                        if self.debatBP.returnRound() > 2 {
+                                           self.debatBP.tourPrecdedent()
+                                        }
+                                        else{
+                                          self.debatBP.tourPrecdedent()
+                                        }
+                                        
+                                    }, label: {
+                                        Image("backwards").renderingMode(.original)
+                                    })
+                                    Button(action: {
+                                        switch (self.pausePlay) {
+                                        case "play" :
+                                            self.pausePlay = "pause"
+                                            break
+                                        case "pause" :
+                                            self.pausePlay = "play"
+                                            break
+                                        default:
+                                            self.pausePlay = "Erreur"
+                                        }
+                                        
+                                        
+                                    }) {
+                                        Image(self.pausePlay).renderingMode(.original)
+
+                                        
+                                    }
+                                    Button(action: {
+                                        
+                                            self.debatBP.prochainTour()
+                                            self.debatBP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
+                                            //le probleme est ici ronde de 3 au lieu de 2...
+                                        
+                                    }, label: {
+                                        Image("forward").renderingMode(.original)
+                                    } )
+                //ici
+                                }
+                        
+            }
         }
         
-    }
+    
+
 
 }
