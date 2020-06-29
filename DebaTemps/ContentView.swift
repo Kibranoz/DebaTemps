@@ -230,15 +230,17 @@ struct BPView :View {
                     let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
                         self.round = self.debatBP.returnRound();
                         self.debatBP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
+                        if self.debatBP.returnRound() <= 0 {
+                                               self.enCours = "BP - Commencer"
+                                               chrono.invalidate()
+                                               self.debatBP.reset();
+                                               self.presentationMode.wrappedValue.dismiss()
+                                                                      }
                     }
-                    if self.debatBP.returnRound() <= 0 {
-                                                   chrono.invalidate()
-                                                   self.enCours = "BP - Commencer"
-                        self.presentationMode.wrappedValue.dismiss()
-                                               }
+                   
                 }
                 else{
-                    self.tempsMillieu = 600
+                    self.tempsMillieu = 420
                     self.tempsFermeture = 0
                     self.round = self.debatBP.returnRound();
                 }

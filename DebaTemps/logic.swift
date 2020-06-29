@@ -201,10 +201,10 @@ class BP:Debat{
     override init(){
         super.init()
         self.ronde = 8;
-        self.tempsActuel = 600;
+        self.tempsActuel = 420;
     }
     override var tempsTotalMillieu : Int{
-        return 600;
+        return 420;
     }
     override var tempsLibre:Int{
         return 360;
