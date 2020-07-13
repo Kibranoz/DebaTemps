@@ -36,7 +36,8 @@ struct cpView: View {
     @State var pausePlay = "pause"
     @State var tempsMillieu = 420; //on en a besoin car on veut pouvoir changer le temps actuel d'ici
     @State var tempsFermeture = 180
-    @State var round = 7;
+    @State var round = 6;
+    @State var role  = ""
     @State var repartitionPM = "7/3"
     @State var repartitionCO = "Split"
     @State var traditionnelle = "Traditionnelle"
@@ -55,7 +56,7 @@ struct cpView: View {
     var body: some View {
 
                 VStack{
-                    Text(String(self.round))
+                    Text(String(self.role))
                     Text(mode)
                         .font(.largeTitle)
                         .fontWeight(.semibold)
@@ -67,12 +68,14 @@ struct cpView: View {
                         //self.debatCP.modePm()
                         if self.enCours != "Recommencer"{
                             let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
-                            self.round = self.debatCP.returnRound();
+                            //self.round = self.debatCP.returnRound();
+                            self.role = self.debatCP.returnRole()
                             if self.debatCP.returnRound() > 2{
                             self.debatCP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                             }
                             else{
-                                self.round = self.debatCP.returnRound();
+                                //self.round = self.debatCP.returnRound();
+                                self.role = self.debatCP.returnRole();
                                  self.debatCP.verifierEtatFin(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                                 
                             }
@@ -209,6 +212,7 @@ struct BPView :View {
        @State var tempsMillieu = 600;
        @State var tempsFermeture = 0
        @State var round = 8;
+       @State var role = ""
        var debatBP:BP!=nil
     @State var showContentView = false;
     @Environment(\.presentationMode) var presentationMode
@@ -217,7 +221,7 @@ struct BPView :View {
     }
     var body : some View {
         VStack{
-        Text(String(self.round))
+        Text(String(self.role))
         Text(mode)
             .font(.largeTitle)
             .fontWeight(.semibold)
@@ -229,6 +233,7 @@ struct BPView :View {
                 if self.enCours != "Recommencer"{
                     let chrono = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (chrono) in
                         self.round = self.debatBP.returnRound();
+                        self.role = self.debatBP.returnRole();
                         self.debatBP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
                         if self.debatBP.returnRound() <= 0 {
                                                self.enCours = "BP - Commencer"

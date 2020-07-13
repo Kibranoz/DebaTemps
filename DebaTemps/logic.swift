@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 class Debat{
-    var ronde = 7;
+    var ronde = 6;
      var rondeFermeture:Int{
         return 0;
     }
@@ -28,6 +28,9 @@ class Debat{
     }
     func returnRound()->Int{
         fatalError("La classe fille doit override cette méthode")
+    }
+    func returnRole()->String{
+        fatalError("La classe fille doit override cette méthode");
     }
     func formatTime(time:Int) -> String {
         let minutes:Int = time/60
@@ -81,6 +84,7 @@ class Debat{
                 else{
                     self.tempsActuel = tempsTotalMillieu
                 }
+              //  pause = "pause"
         }
     }
         func returnRound()->Int{
@@ -101,8 +105,9 @@ class Debat{
             else {
                 self.ronde -= 1
                     self.tempsActuel = tempsFermeture
+                    // pause = "pause"
             }
-                
+              
             }
         }
 
@@ -122,10 +127,10 @@ class CP:Debat{
             return 2;
         }
         override var tempsTotalMillieu : Int{
-            if self.ronde == 7 && self.modePM == "6/4" {
+            if self.ronde == 6 && self.modePM == "6/4" {
                 return 360
             }
-            if self.ronde == 6 && self.modeCO == "Traditionnelle"{
+            if self.ronde == 5 && self.modeCO == "Traditionnelle"{
                 return 600;
             }
             
@@ -138,7 +143,7 @@ class CP:Debat{
         }
         
         override var tempsLibre:Int{//360
-             if self.ronde == 7 && self.modePM == "6/4" {
+             if self.ronde == 6 && self.modePM == "6/4" {
                 //run avant d'updater
                 
                 return 300
@@ -159,7 +164,7 @@ class CP:Debat{
             }
     }
     func reset(){
-        self.ronde = 7;
+        self.ronde = 6;
         if self.modePM == "6/4"{
         self.tempsActuel = 360;
         }
@@ -186,10 +191,14 @@ class CP:Debat{
     override func returnRound()->Int{
         return self.ronde
     }
+    override func returnRole() -> String {
+        let role = ["","Premier(ière) ministre", "Chef(fe) de l'opposition", "Membre de l'opposition", "Membre du gouvernement","Chef(fe) de l'opposition", "Premier(ière) ministre"];
+        return "C'est au tour du ou de la  \(role[returnRound()])"
+    }
     func returnTempsFermeture()->Int{
         return tempsFermeture;
     }
-    func returnTempsMilieu()->Int {
+    func returnTempsMilieu()->Int { 
         return tempsTotalMillieu;
     }
         
@@ -226,5 +235,10 @@ class BP:Debat{
     func reset(){
            self.ronde = 8;
        }
+    
+    override func returnRole() -> String {
+        let role = ["","Whip de l'opposition","Whip du gouvernement", "Membre de l'opposition", "Membre du gouvernement", "Chef(fe) adjoint(e) de l'opposition", "Premier(ière) ministre adjoint(e)" ,"Chef(fe) de l'opposition", "Premier(ière) ministre"];
+        return "C'est au tour du ou de la  \(role[returnRound()])"
+    }
 }
 //est ce que c'est nécéssaire d'avoir deux fois round?
