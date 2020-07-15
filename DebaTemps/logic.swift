@@ -84,7 +84,7 @@ class Debat{
                 else{
                     self.tempsActuel = tempsTotalMillieu
                 }
-              //  pause = "pause"
+                pause = "play"
         }
     }
         func returnRound()->Int{
@@ -105,7 +105,7 @@ class Debat{
             else {
                 self.ronde -= 1
                     self.tempsActuel = tempsFermeture
-                    // pause = "pause"
+                     pause = "play"
             }
               
             }
