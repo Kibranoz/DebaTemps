@@ -7,8 +7,20 @@
 //
 //2 se fait deux fois.
 import Foundation
+import AVFoundation
 import SwiftUI
 class Debat{
+    var clap :AVAudioPlayer?;
+    func playClapSound()->Void{
+        do{
+            self.clap = try AVAudioPlayer(contentsOf: URL(fileURLWithPath:  Bundle.main.path(forResource: "267930__anagar__clapping.wav", ofType: nil)!));
+            clap?.play()
+        }
+        catch {
+            print("Impossible de faire jouer le son");
+        }
+    }
+        
     var ronde = 6;
      var rondeFermeture:Int{
         return 0;
@@ -84,6 +96,7 @@ class Debat{
                 else{
                     self.tempsActuel = tempsTotalMillieu
                 }
+                playClapSound()
                 pause = "play"
         }
     }
@@ -105,6 +118,7 @@ class Debat{
             else {
                 self.ronde -= 1
                     self.tempsActuel = tempsFermeture
+                    playClapSound()
                      pause = "play"
             }
               
