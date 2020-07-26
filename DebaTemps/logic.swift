@@ -248,6 +248,7 @@ class BP:Debat{
     }
     func reset(){
            self.ronde = 8;
+           self.tempsActuel = 420;
        }
     
     override func returnRole() -> String {

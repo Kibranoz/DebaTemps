@@ -247,7 +247,8 @@ struct BPView :View {
                 else{
                     self.tempsMillieu = 420
                     self.tempsFermeture = 0
-                    self.round = self.debatBP.returnRound();
+                    self.debatBP.reset()
+                    //self.round = self.debatBP.returnRound();
                 }
                 self.enCours = "Recommencer"
 
