@@ -132,7 +132,7 @@ struct cpView: View {
                                 }
                         }})
                         
-                    Text(tempsString)
+                    Text(tempsString).font(.system(size:75))
                     HStack{
                         Button(action: {
                             if self.debatCP.returnRound() > 2 {
@@ -256,7 +256,7 @@ struct BPView :View {
                 
             }, label: {Text(enCours)})
                 
-             Text(tempsString)
+            Text(tempsString).font(.system(size:75))
             HStack{
                                     Button(action: {
                                         if self.debatBP.returnRound() > 2 {

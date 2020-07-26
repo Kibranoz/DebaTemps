@@ -207,7 +207,7 @@ class CP:Debat{
     }
     override func returnRole() -> String {
         let role = ["","Premier(ière) ministre", "Chef(fe) de l'opposition", "Membre de l'opposition", "Membre du gouvernement","Chef(fe) de l'opposition", "Premier(ière) ministre"];
-        return "C'est au tour du ou de la  \(role[returnRound()])"
+        return "\(role[returnRound()])"
     }
     func returnTempsFermeture()->Int{
         return tempsFermeture;
@@ -253,7 +253,7 @@ class BP:Debat{
     
     override func returnRole() -> String {
         let role = ["","Whip de l'opposition","Whip du gouvernement", "Membre de l'opposition", "Membre du gouvernement", "Chef(fe) adjoint(e) de l'opposition", "Premier(ière) ministre adjoint(e)" ,"Chef(fe) de l'opposition", "Premier(ière) ministre"];
-        return "C'est au tour du ou de la  \(role[returnRound()])"
+        return "\(role[returnRound()])"
     }
 }
 //est ce que c'est nécéssaire d'avoir deux fois round?

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F402FF523B2D8AC002285D6 /* logicWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F402FF423B2D8AC002285D6 /* logicWatch.swift */; };
+		4F50A7D524CE135200BA265F /* 267930__anagar__clapping.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4F50A7D424CE135200BA265F /* 267930__anagar__clapping.wav */; };
 		4F71E58F24CD078B0020AAEA /* 267930__anagar__clapping.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4F71E58E24CD078B0020AAEA /* 267930__anagar__clapping.wav */; };
 		4FCC9FD023AF010900FE430D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FCC9FCF23AF010900FE430D /* Assets.xcassets */; };
 		4FCC9FD223AF016900FE430D /* logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC9FD123AF016900FE430D /* logic.swift */; };
@@ -91,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		4F402FF423B2D8AC002285D6 /* logicWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logicWatch.swift; sourceTree = "<group>"; };
+		4F50A7D424CE135200BA265F /* 267930__anagar__clapping.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 267930__anagar__clapping.wav; path = DebaTemps/267930__anagar__clapping.wav; sourceTree = SOURCE_ROOT; };
 		4F71E58D24CD006C0020AAEA /* DebaTemps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DebaTemps.entitlements; sourceTree = "<group>"; };
 		4F71E58E24CD078B0020AAEA /* 267930__anagar__clapping.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 267930__anagar__clapping.wav; path = DebaTemps/267930__anagar__clapping.wav; sourceTree = SOURCE_ROOT; };
 		4FCC9FCF23AF010900FE430D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DebaTemps/Assets.xcassets; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				4FDA41F82390E029004CBF4C /* HostingController.swift */,
 				4FDA41FA2390E029004CBF4C /* ExtensionDelegate.swift */,
 				4FDA41FC2390E029004CBF4C /* NotificationController.swift */,
+				4F50A7D424CE135200BA265F /* 267930__anagar__clapping.wav */,
 				4F402FF423B2D8AC002285D6 /* logicWatch.swift */,
 				4FDA41FE2390E029004CBF4C /* NotificationView.swift */,
 				4FDA42002390E029004CBF4C /* ComplicationController.swift */,
@@ -455,6 +458,7 @@
 			files = (
 				4FDA42062390E02A004CBF4C /* Preview Assets.xcassets in Resources */,
 				4FDA42032390E02A004CBF4C /* Assets.xcassets in Resources */,
+				4F50A7D524CE135200BA265F /* 267930__anagar__clapping.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
