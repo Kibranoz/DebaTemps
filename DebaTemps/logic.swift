@@ -20,7 +20,7 @@ class Debat{
             print("Impossible de faire jouer le son");
         }
     }
-        
+    var rollback:Bool = false;
     var ronde = 6;
      var rondeFermeture:Int{
         return 0;
@@ -47,27 +47,25 @@ class Debat{
     func formatTime(time:Int) -> String {
         let minutes:Int = time/60
         let seconds:Int = time%60
-        return String(minutes) + ":" + String(seconds)
+        let secondString:String = seconds < 10 ? "0"+String(seconds) : String(seconds)
+        return String(minutes) + ":" + secondString
     }
+    /*
+     Cette fonction prépare la classe Debat a changer de tour, ce changement pourra être fait sans problème lors du prochain appel de verifierEtatDebut() ou verifierEtatFin
+     */
     func prochainTour()->Void{
-        if self.ronde > rondeFermeture {
-            let tempsAvantLaFin = self.tempsActuel % self.tempsTotalMillieu
-            self.tempsActuel -= tempsAvantLaFin
+        self.tempsActuel = 0;
+        self.rollback = false
+            
         }
-        if self.ronde <= rondeFermeture{
-            let tempsAvantLaFin = self.tempsActuel % self.tempsFermeture
-            self.tempsActuel -= tempsAvantLaFin
-        }
-    }
+    
+/*
+Cette fonction prépare la classe Debat a retourner au tour précédent, ce retour pourra être fait sans problème lors du prochain appel de verifierEtatDebut() ou verifierEtatFin()
+*/
     func tourPrecdedent()->Void{
-        if self.tempsActuel == 0{
-            self.ronde += 2
-        }
-        else {
             self.tempsActuel = 0
-            self.ronde += 2
-            // ne marche pas complètement car on enlève quand même une round lorsqu'on le fait à cause de l'autre chronomètre...
-        }
+            self.rollback = true;
+        
     }
     func verifierEtatDebut(pause:inout String, partie: inout String, tempsStr:inout String){
         if self.ronde > rondeFermeture {
@@ -87,9 +85,13 @@ class Debat{
                 }
             }
             else{
-                //à 3 les deux runnent enc même temps
-                self.ronde -= 1
-                //il fallait updater round
+                if !self.rollback {
+                    self.ronde -= 1;
+                }
+               else{
+                    self.ronde += 1;
+                    self.rollback = false;
+                }
                 if self.ronde == rondeFermeture{
                     self.tempsActuel = tempsFermeture;
                 }
@@ -116,7 +118,13 @@ class Debat{
             partie = "3 min temps protégé"
                 }
             else {
-                self.ronde -= 1
+                if !self.rollback {
+                     self.ronde -= 1;
+                 }
+                else{
+                     self.ronde += 1;
+                     self.rollback = false;
+                 }
                     self.tempsActuel = tempsFermeture
                     playClapSound()
                      pause = "play"

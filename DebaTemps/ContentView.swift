@@ -135,12 +135,9 @@ struct cpView: View {
                     Text(tempsString).font(.system(size:75))
                     HStack{
                         Button(action: {
-                            if self.debatCP.returnRound() > 2 {
-                               self.debatCP.tourPrecdedent()
-                            }
-                            else{
+                            
                               self.debatCP.tourPrecdedent()
-                            }
+                            
                             
                         }, label: {
                             Image("backwards").renderingMode(.original)
@@ -164,17 +161,9 @@ struct cpView: View {
                             
                         }
                         Button(action: {
-                            self.round = self.debatCP.returnRound();
-                            if self.debatCP.returnRound() > 3 {
                                 self.debatCP.prochainTour()
-                                self.debatCP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
-                                //le probleme est ici ronde de 3 au lieu de 2...
-                            }
-                            else {
-                                self.debatCP.prochainTour()
-                                //self.round -= 1
-                                self.debatCP.verifierEtatFin(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
-                            }
+                                
+                            
                         }, label: {
                             Image("forward").renderingMode(.original)
                         } )
@@ -259,12 +248,8 @@ struct BPView :View {
             Text(tempsString).font(.system(size:75))
             HStack{
                                     Button(action: {
-                                        if self.debatBP.returnRound() > 2 {
-                                           self.debatBP.tourPrecdedent()
-                                        }
-                                        else{
+                                       
                                           self.debatBP.tourPrecdedent()
-                                        }
                                         
                                     }, label: {
                                         Image("backwards").renderingMode(.original)
@@ -290,9 +275,6 @@ struct BPView :View {
                                     Button(action: {
                                         
                                             self.debatBP.prochainTour()
-                                            self.debatBP.verifierEtatDebut(pause: &self.pausePlay, partie: &self.partie, tempsStr: &self.tempsString)
-                                            //le probleme est ici ronde de 3 au lieu de 2...
-                                        
                                     }, label: {
                                         Image("forward").renderingMode(.original)
                                     } )
