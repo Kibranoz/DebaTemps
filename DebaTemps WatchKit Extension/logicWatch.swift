@@ -265,3 +265,9 @@ class BP:Debat{
     }
 }
 //est ce que c'est nécéssaire d'avoir deux fois round?
+
+struct logicWatch_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

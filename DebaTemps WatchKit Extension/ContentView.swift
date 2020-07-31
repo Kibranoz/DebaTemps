@@ -61,7 +61,7 @@ struct cpView: View {
     var body: some View {
 
         VStack(spacing:1){
-                    Text(String(self.role)).font(.system(size:12))
+                    
                     Text(partie).font(.system(size:12))
                     Button(action: {
                         self.showAlert(.first)
@@ -132,7 +132,7 @@ struct cpView: View {
                                 }
                         }})
                         
-                    Text(tempsString)
+            Text(tempsString).font(.system(size:40))
                     HStack{
                         Button(action: {
                             if self.debatCP.returnRound() > 2 {
@@ -221,7 +221,6 @@ struct BPView :View {
     }
     var body : some View {
         VStack(spacing:1){
-            Text(String(self.role)).font(.system(size:12))
         
             Text(partie).font(.system(size:12))
         
@@ -252,7 +251,7 @@ struct BPView :View {
                 
             }, label: {Text(enCours)})
                 
-             Text(tempsString)
+            Text(tempsString).font(.system(size:40))
             HStack{
                                     Button(action: {
                                         if self.debatBP.returnRound() > 2 {
