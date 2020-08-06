@@ -14,31 +14,47 @@ enum ActiveAlert {
 
 struct ContentView : View{
     var body : some View {
-        NavigationView{
-            VStack{
-        NavigationLink(destination: BPView()) {
-            Text("Format British Parliamentary")
-                .foregroundColor(Color.blue);
-        }
-            NavigationLink(destination:cpView()) {
-                Text("Format Canadien Parlementaire")
-                .foregroundColor(Color.blue);
+        
+        
+            NavigationView{
+                VStack(alignment: .center, spacing: 30.0){
+                    VStack{
+                        Text("Format du débat").font(.largeTitle)
+                        .fontWeight(.semibold)
+                            .lineLimit(nil)
+        
+                            
+                    }
+            NavigationLink(destination: BPView()) {
+                Text("British Parliamentary 🇬🇧")
+                    .font(.title)
+                    .foregroundColor(Color.blue)
+                
             }
-            }}
+                NavigationLink(destination:cpView()) {
+                    Text("Parlementaire Canadien 🇨🇦")
+                        .font(.title)
+                        .foregroundColor(Color.blue)
+                       
+                }
+                }}
+        }
+            
+            
 
-    }
+    
 }
 struct cpView: View {
-    @State var mode = "Chronometre"
+    @State var mode = "Chronomètre"
     @State var partie = "Partie du débat"
     @State var tempsString = "Temps ici"
-    @State var enCours = "CanadienParlementaire - Commencer"
+    @State var enCours = "Commencer"
     @State var pausePlay = "pause"
     @State var tempsMillieu = 420; //on en a besoin car on veut pouvoir changer le temps actuel d'ici
     @State var tempsFermeture = 180
     @State var round = 6;
     @State var role  = ""
-    @State var repartitionPM = "7/3"
+    @State var repartitionPM = "7/3" //enlever ceci et metree des true false è la place
     @State var repartitionCO = "Split"
     @State var traditionnelle = "Traditionnelle"
     var debatCP:CP!=nil
@@ -80,13 +96,10 @@ struct cpView: View {
                                 
                             }
                                 if self.debatCP.returnRound() <= 0 {
-                                    self.enCours = "Canadien Parlementaire - Commencer"
+                                    self.enCours = " Commencer"
                                     self.debatCP.reset();
                                     chrono.invalidate();
                                     self.presentationMode.wrappedValue.dismiss()
-                                    
-            
-                                
                     
                             }
                             else{
@@ -101,7 +114,7 @@ struct cpView: View {
                         }
 
 
-                        self.mode = "CP"
+                        self.mode = "PC"
                     }, label: {
                         Text(enCours)
                             .alert(isPresented: $showingAlert) {
@@ -196,7 +209,7 @@ struct BPView :View {
     @State var mode = "Chronometre"
        @State var partie = "Partie du débat"
        @State var tempsString = "Temps ici"
-       @State var enCours = "BP - Commencer"
+       @State var enCours = "Commencer"
        @State var pausePlay = "pause"
        @State var tempsMillieu = 600;
        @State var tempsFermeture = 0
