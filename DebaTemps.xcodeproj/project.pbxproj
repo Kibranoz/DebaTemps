@@ -15,7 +15,6 @@
 		4FCC9FD423AF01E300FE430D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC9FD323AF01E200FE430D /* ContentView.swift */; };
 		4FCC9FD623AF01F100FE430D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC9FD523AF01F100FE430D /* SceneDelegate.swift */; };
 		4FDA41BC2390E027004CBF4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41BB2390E027004CBF4C /* AppDelegate.swift */; };
-		4FDA41C22390E028004CBF4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA41C12390E028004CBF4C /* Assets.xcassets */; };
 		4FDA41C52390E028004CBF4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA41C42390E028004CBF4C /* Preview Assets.xcassets */; };
 		4FDA41C82390E028004CBF4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDA41C62390E028004CBF4C /* LaunchScreen.storyboard */; };
 		4FDA41D32390E029004CBF4C /* DebaTempsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA41D22390E029004CBF4C /* DebaTempsTests.swift */; };
@@ -372,7 +371,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = lrcstudios;
 				TargetAttributes = {
 					4FDA41B72390E027004CBF4C = {
@@ -425,7 +424,6 @@
 				4F71E58F24CD078B0020AAEA /* 267930__anagar__clapping.wav in Resources */,
 				4FDA41C52390E028004CBF4C /* Preview Assets.xcassets in Resources */,
 				4FCC9FD023AF010900FE430D /* Assets.xcassets in Resources */,
-				4FDA41C22390E028004CBF4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

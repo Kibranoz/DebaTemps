@@ -136,11 +136,11 @@ Cette fonction prépare la classe Debat a retourner au tour précédent, ce reto
 }
 //utiliser les init et avoir des paramètre selon le mode choisi 
 class CP:Debat{
-    @Binding var modePM:String
-    @Binding var modeCO:String
-    init(modePM:Binding <String>, modeCO:Binding<String>){
-        self._modePM = modePM
-        self._modeCO = modeCO
+    var modePM:String
+     var modeCO:String
+    override init(){
+        self.modePM = "6/4"
+        self.modeCO = "7/3"
         super.init()
         self.tempsActuel = 420;
 
@@ -194,21 +194,27 @@ class CP:Debat{
             self.tempsActuel = 420;
         }
     }
-    func changerModePM(newModePM:Binding<String>){
-        self._modePM = newModePM
-        if self.modePM == "6/4"{
+    func changerModePM(sixquatre:Bool,septtrois:Bool){
+        if (sixquatre){
+        self.modePM = "6/4"
         self.tempsActuel = 360;
         }
         else {
+            self.modePM = "7/3"
             self.tempsActuel = 420;
         }
         
     }
-    func changerModeCO(newModeCO:Binding<String>){
-        self._modeCO = newModeCO
+    func changerModeCO(trad:Bool, split:Bool){
+        if (trad){
+        self.modeCO = "Traditionnelle"
+        }
+        else {
+            self.modeCO = "Split"
+        }
     }
     func modePm(){
-        print(self._modePM)
+        print(self.modePM)
     }
     override func returnRound()->Int{
         return self.ronde

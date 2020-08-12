@@ -55,8 +55,6 @@ struct cpView: View {
     @State var round = 6;
     @State var role  = ""
     @State var repartitionPM = "7/3" //enlever ceci et metree des true false è la place
-    @State var repartitionCO = "Split"
-    @State var traditionnelle = "Traditionnelle"
     var debatCP:CP!=nil
     @State private var showingAlert = false
     @State private var activeAlert :ActiveAlert = .first
@@ -67,7 +65,7 @@ struct cpView: View {
     //il va falloir un bouton pause
     
     init(){
-        debatCP = CP(modePM: $repartitionPM, modeCO:$repartitionCO)
+        debatCP = CP()
     }
     var body: some View {
 
@@ -122,23 +120,23 @@ struct cpView: View {
                                 case .first:
                                     //self.showAlert(.second)
                                  return Alert(title: Text("6/4 ou 7/3"), message: Text("6/4 pour avoir plus de temps à la fin et 7/3 pour en avoir plus au début"), primaryButton: .default(Text("6/4"), action: {
-                                    self.debatCP.changerModePM(newModePM: self.$sixQuatre);
+                                    self.debatCP.changerModePM(sixquatre: true,septtrois: false);
                                     self.tempsMillieu = 360;
                                     self.tempsFermeture = self.debatCP.returnTempsFermeture();
                                     self.showAlert(.second)
                                 }), secondaryButton: .default(Text("7/3"), action: {
-                                    self.debatCP.changerModePM(newModePM: self.$repartitionPM)
+                                    self.debatCP.changerModePM(sixquatre: false,septtrois: true)
                                     self.tempsMillieu = 420
                                     self.tempsFermeture = 180
                                     self.showAlert(.second)
                                 }))
                                 case .second :
                                 return Alert(title: Text("Split ou traditionnel"), message: Text("Split : 7/3 Traditionnel : 10/0 "), primaryButton: .default(Text("Split"), action: {
-                                    self.debatCP.changerModeCO(newModeCO: self.$repartitionCO);
+                                    self.debatCP.changerModeCO(trad: false,split: true);
                                     self.tempsMillieu = self.debatCP.returnTempsMilieu();
                                     self.tempsFermeture = self.debatCP.returnTempsFermeture();
                                 }), secondaryButton: .default(Text("Traditionnelle"), action: {
-                                    self.debatCP.changerModeCO(newModeCO: self.$traditionnelle)
+                                    self.debatCP.changerModeCO(trad: true,split: false)
                                     self.tempsMillieu = self.debatCP.returnTempsMilieu()
                                     self.tempsFermeture = self.debatCP.returnTempsFermeture()
                                 }))
