@@ -164,7 +164,9 @@ struct cpView: View {
                             default:
                                 self.pausePlay = "Erreur"
                             }
-                            
+                            if (self.pausePlay == "pause"){
+                                self.debatCP.toBeggining()
+                            }
                             
                         }) {
                             Image(self.pausePlay).renderingMode(.original)
@@ -277,7 +279,9 @@ struct BPView :View {
                                             self.pausePlay = "Erreur"
                                         }
                                         
-                                        
+                                        if (self.pausePlay == "pause"){
+                                            self.debatBP.toBeggining()
+                                        }
                                     }) {
                                         Image(self.pausePlay).renderingMode(.original)
 

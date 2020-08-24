@@ -25,7 +25,14 @@ class Debat{
      var rondeFermeture:Int{
         return 0;
     }
-    var tempsActuel = 0;
+    
+    var baseTime = Date().timeIntervalSinceReferenceDate
+    var now = Date().timeIntervalSinceReferenceDate
+    var timeOffset = 0;
+    var tempsActuel:Int{
+        var seconds = Int(self.baseTime - self.now) + (self.timeOffset)
+        return (seconds)
+    }
      var tempsTotalMillieu:Int{//420
         return 0;
     };
@@ -54,7 +61,9 @@ class Debat{
      Cette fonction prépare la classe Debat a changer de tour, ce changement pourra être fait sans problème lors du prochain appel de verifierEtatDebut() ou verifierEtatFin
      */
     func prochainTour()->Void{
-        self.tempsActuel = 0;
+        self.baseTime = Date().timeIntervalSinceReferenceDate
+        self.now = Date().timeIntervalSinceReferenceDate
+        self.timeOffset = 0
         self.rollback = false
             
         }
@@ -63,16 +72,17 @@ class Debat{
 Cette fonction prépare la classe Debat a retourner au tour précédent, ce retour pourra être fait sans problème lors du prochain appel de verifierEtatDebut() ou verifierEtatFin()
 */
     func tourPrecdedent()->Void{
-            self.tempsActuel = 0
+            self.baseTime = Date().timeIntervalSinceReferenceDate
+            self.now = Date().timeIntervalSinceReferenceDate
             self.rollback = true;
         
     }
     func verifierEtatDebut(pause:inout String, partie: inout String, tempsStr:inout String){
         if self.ronde > rondeFermeture {
             if self.tempsActuel != 0{
-                tempsStr = String(self.formatTime(time: tempsActuel))
+                tempsStr = String(self.formatTime(time: Int(self.tempsActuel)))
                 if pause == "pause"{
-                    self.tempsActuel -= 1
+                    self.now =  Date().timeIntervalSinceReferenceDate
                 }
                 if self.tempsActuel > self.tempsLibre{
                     partie = "1 min temps protégé"
@@ -93,10 +103,10 @@ Cette fonction prépare la classe Debat a retourner au tour précédent, ce reto
                     self.rollback = false;
                 }
                 if self.ronde == rondeFermeture{
-                    self.tempsActuel = tempsFermeture;
+                    self.timeOffset = tempsFermeture;
                 }
                 else{
-                    self.tempsActuel = tempsTotalMillieu
+                    self.timeOffset = tempsTotalMillieu
                 }
                 playClapSound()
                 pause = "play"
@@ -106,6 +116,10 @@ Cette fonction prépare la classe Debat a retourner au tour précédent, ce reto
                return self.ronde
            }
         }
+    func toBeggining()->Void{
+        self.baseTime = Date().timeIntervalSinceReferenceDate
+        self.now = Date().timeIntervalSinceReferenceDate
+    }
         func verifierEtatFin(pause:inout String, partie: inout String, tempsStr:inout String){
             //tempsActuel = tempsFermeture
             if self.ronde <= rondeFermeture + 1{
@@ -113,7 +127,7 @@ Cette fonction prépare la classe Debat a retourner au tour précédent, ce reto
                 if self.tempsActuel != 0 {
                     tempsStr = String(self.formatTime(time: self.tempsActuel))
             if pause == "pause"{
-                self.tempsActuel -= 1
+                self.now = Date().timeIntervalSinceReferenceDate
             }
             partie = "3 min temps protégé"
                 }
@@ -125,7 +139,7 @@ Cette fonction prépare la classe Debat a retourner au tour précédent, ce reto
                      self.ronde += 1;
                      self.rollback = false;
                  }
-                    self.tempsActuel = tempsFermeture
+                    self.timeOffset = tempsFermeture
                     playClapSound()
                      pause = "play"
             }
@@ -142,7 +156,7 @@ class CP:Debat{
         self.modePM = "6/4"
         self.modeCO = "7/3"
         super.init()
-        self.tempsActuel = 420;
+        self.timeOffset = 420;
 
     }
       override  var rondeFermeture:Int{
@@ -187,21 +201,23 @@ class CP:Debat{
     }
     func reset(){
         self.ronde = 6;
+        self.baseTime = Date().timeIntervalSinceReferenceDate
+        self.baseTime = Date().timeIntervalSinceReferenceDate
         if self.modePM == "6/4"{
-        self.tempsActuel = 360;
+        self.timeOffset = 360;
         }
         else {
-            self.tempsActuel = 420;
+            self.timeOffset = 420;
         }
     }
     func changerModePM(sixquatre:Bool,septtrois:Bool){
         if (sixquatre){
         self.modePM = "6/4"
-        self.tempsActuel = 360;
+        self.timeOffset = 360;
         }
         else {
             self.modePM = "7/3"
-            self.tempsActuel = 420;
+            self.timeOffset = 420;
         }
         
     }
@@ -238,7 +254,7 @@ class BP:Debat{
     override init(){
         super.init()
         self.ronde = 8;
-        self.tempsActuel = 420;
+        self.timeOffset = 420;
     }
     override var tempsTotalMillieu : Int{
         return 420;
@@ -262,7 +278,7 @@ class BP:Debat{
     }
     func reset(){
            self.ronde = 8;
-           self.tempsActuel = 420;
+           self.timeOffset = 420;
        }
     
     override func returnRole() -> String {
