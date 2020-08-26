@@ -74,10 +74,12 @@ Cette fonction prépare la classe Debat a retourner au tour précédent, ce reto
     func tourPrecdedent()->Void{
             self.baseTime = Date().timeIntervalSinceReferenceDate
             self.now = Date().timeIntervalSinceReferenceDate
+            self.timeOffset = 0
             self.rollback = true;
         
     }
     func verifierEtatDebut(pause:inout String, partie: inout String, tempsStr:inout String){
+        
         if self.ronde > rondeFermeture {
             if self.tempsActuel != 0{
                 tempsStr = String(self.formatTime(time: Int(self.tempsActuel)))
