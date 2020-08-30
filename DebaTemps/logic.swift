@@ -79,7 +79,6 @@ Cette fonction prépare la classe Debat a retourner au tour précédent, ce reto
         
     }
     func verifierEtatDebut(pause:inout String, partie: inout String, tempsStr:inout String){
-        
         if self.ronde > rondeFermeture {
             if self.tempsActuel != 0{
                 tempsStr = String(self.formatTime(time: Int(self.tempsActuel)))
@@ -89,7 +88,7 @@ Cette fonction prépare la classe Debat a retourner au tour précédent, ce reto
                 if self.tempsActuel > self.tempsLibre{
                     partie = "1 min temps protégé"
                 }
-                if self.tempsActuel < self.tempsLibre && tempsActuel > self.tempsProtege {
+                if self.tempsActuel < self.tempsLibre && self.tempsActuel > self.tempsProtege {
                     partie = "5 min temps non protégé"
                 }
                 if self.tempsActuel < self.tempsProtege {

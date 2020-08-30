@@ -50,8 +50,8 @@ struct cpView: View {
     @State var tempsString = "Temps ici"
     @State var enCours = "Commencer"
     @State var pausePlay = "pause"
-    @State var tempsMillieu = 420; //on en a besoin car on veut pouvoir changer le temps actuel d'ici
-    @State var tempsFermeture = 180
+   // @State var tempsMillieu = 420; //on en a besoin car on veut pouvoir changer le temps actuel d'ici
+   // @State var tempsFermeture = 180
     @State var round = 6;
     @State var role  = ""
     @State var repartitionPM = "7/3" //enlever ceci et metree des true false è la place
@@ -106,8 +106,8 @@ struct cpView: View {
                         }
                         }
                         else{
-                            self.tempsMillieu = 420
-                            self.tempsFermeture = 180
+                          //  self.tempsMillieu = 420
+                          //  self.tempsFermeture = 180
                             self.debatCP.reset();
                         }
 
@@ -121,24 +121,25 @@ struct cpView: View {
                                     //self.showAlert(.second)
                                  return Alert(title: Text("6/4 ou 7/3"), message: Text("6/4 pour avoir plus de temps à la fin et 7/3 pour en avoir plus au début"), primaryButton: .default(Text("6/4"), action: {
                                     self.debatCP.changerModePM(sixquatre: true,septtrois: false);
-                                    self.tempsMillieu = 360;
-                                    self.tempsFermeture = self.debatCP.returnTempsFermeture();
+                                  //  self.tempsMillieu = 360;
+                                 //   self.tempsFermeture = self.debatCP.returnTempsFermeture();
                                     self.showAlert(.second)
                                 }), secondaryButton: .default(Text("7/3"), action: {
                                     self.debatCP.changerModePM(sixquatre: false,septtrois: true)
-                                    self.tempsMillieu = 420
-                                    self.tempsFermeture = 180
+                                 //   self.tempsMillieu = 420
+                                //    self.tempsFermeture = 180
                                     self.showAlert(.second)
                                 }))
                                 case .second :
                                 return Alert(title: Text("Split ou traditionnel"), message: Text("Split : 7/3 Traditionnel : 10/0 "), primaryButton: .default(Text("Split"), action: {
                                     self.debatCP.changerModeCO(trad: false,split: true);
-                                    self.tempsMillieu = self.debatCP.returnTempsMilieu();
-                                    self.tempsFermeture = self.debatCP.returnTempsFermeture();
+                                   // self.tempsMillieu = self.debatCP.returnTempsMilieu();
+                                    //self.tempsFermeture = self.debatCP.returnTempsFermeture();
                                 }), secondaryButton: .default(Text("Traditionnelle"), action: {
                                     self.debatCP.changerModeCO(trad: true,split: false)
-                                    self.tempsMillieu = self.debatCP.returnTempsMilieu()
-                                    self.tempsFermeture = self.debatCP.returnTempsFermeture()
+                                 //   self.tempsMillieu = self.debatCP.returnTempsMilieu()
+                                    //self.tempsFermeture = self.debatCP.returnTempsFermeture()
+                                    self.debatCP.toBeggining()
                                 }))
                                 }
                         }})
